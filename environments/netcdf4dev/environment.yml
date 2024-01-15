@@ -1,0 +1,8 @@
+name: netcdf4dev
+channels:
+- conda-forge
+dependencies:
+- xarray 
+- distributed
+- netcdf4
+- libnetcdf==4.9.1
