@@ -283,6 +283,6 @@ dependencies:
 - py-cordex
 - pdbufr
 - matplotlib-scalebar
-- python-kaleido
+###- python-kaleido
 - pip:
   - railroad-diagrams ### Unlisted dependency of pip and pyparsing
