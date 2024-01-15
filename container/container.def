@@ -39,6 +39,7 @@ Bootstrap: scratch
         mkdir -p ${SINGULARITY_ROOTFS}/var/run/munge
 
         mkdir -p ${SINGULARITY_ROOTFS}/opt/conda/analysis3-23.10
+        mkdir -p ${SINGULARITY_ROOTFS}/opt/conda/esmvaltool/2.10
 
 %runscript
         /usr/bin/bash -l
