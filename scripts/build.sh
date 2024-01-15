@@ -34,7 +34,7 @@ function inner() {
     ### Create the environment
     if [[ "${1}" == "--install" ]]; then
         ### Use --relocate-prefix to prevent micromamba helpfully resolving symlinks...
-        ${MAMBA} create -p "${CONDA_INSTALLATION_PATH}/envs/${FULLENV}" --relocate-prefix "${CONDA_INSTALLATION_PATH}/envs/${FULLENV}" -f "${ENV_FILE}" -n "${FULLENV}" -y
+        ${MAMBA} create -p "${CONDA_INSTALLATION_PATH}/envs/${FULLENV}" --relocate-prefix "${CONDA_INSTALLATION_PATH}/envs/${FULLENV}" -f "${ENV_FILE}" -y
         if [[ $? -ne 0 ]]; then
             echo "Error installing new environment"
             exit 1
@@ -43,7 +43,7 @@ function inner() {
         cat "${CONDA_INSTALLATION_PATH}"/envs/${FULLENV}/conda-meta/history >> "${CONDA_INSTALLATION_PATH}"/envs/${FULLENV}/conda-meta/history.log
         echo > "${CONDA_INSTALLATION_PATH}"/envs/${FULLENV}/conda-meta/history
         ${MAMBA} env export -p "${CONDA_INSTALLATION_PATH}/envs/${FULLENV}" > deployed."${CONDA_ENVIRONMENT}".old.yml
-        ${MAMBA} update -p "${CONDA_INSTALLATION_PATH}/envs/${FULLENV}" --relocate-prefix "${CONDA_INSTALLATION_PATH}/envs/${FULLENV}" -f "${ENV_FILE}" -n "${FULLENV}" -y
+        ${MAMBA} update -p "${CONDA_INSTALLATION_PATH}/envs/${FULLENV}" --relocate-prefix "${CONDA_INSTALLATION_PATH}/envs/${FULLENV}" -f "${ENV_FILE}" -y
         if [[ $? -ne 0 ]]; then
             echo "Error updating new environment"
             exit 1
