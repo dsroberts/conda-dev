@@ -57,6 +57,7 @@ jobs:
     strategy:
       matrix: ${{fromJson(needs.generate_matrix.outputs.matrix)}}
       max-parallel: 1
+      fail-fast: false
   test:
     needs: [ generate_matrix, build ]
     uses: ./.github/workflows/test.yml
@@ -67,3 +68,4 @@ jobs:
     strategy:
       matrix: ${{fromJson(needs.generate_matrix.outputs.matrix)}}
       max-parallel: 1
+      fail-fast: false
