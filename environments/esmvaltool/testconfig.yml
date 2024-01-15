@@ -1,0 +1,19 @@
+# Modules test will not try to import
+skip:
+# Cause errors and don't throw exceptions cleanly
+- django
+- fontTools.ufoLib
+- matplotlib.tests
+- numba.core.rvsdg_frontend
+- pip._vendor.pyparsing.diagram
+- plotly.plotly
+- plotly.validators
+- prospector.tools
+- psy_maps
+- psy_simple
+- pylint_django
+- pyparsing.diagram
+- virtualenv.discovery
+- xgboost.spark
+- zmq.backend.cffi
+- zmq.green
