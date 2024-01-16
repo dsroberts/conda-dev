@@ -18,3 +18,6 @@ skip:
 - zmq.backend.cffi
 - zmq.green
 - prometheus_client.twisted
+- prompt_toolkit.contrib.ssh
+- send2trash.mac
+- send2trash.win
