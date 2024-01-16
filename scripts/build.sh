@@ -43,6 +43,8 @@ function inner() {
         cat "${CONDA_INSTALLATION_PATH}"/envs/${FULLENV}/conda-meta/history >> "${CONDA_INSTALLATION_PATH}"/envs/${FULLENV}/conda-meta/history.log
         echo > "${CONDA_INSTALLATION_PATH}"/envs/${FULLENV}/conda-meta/history
         ${MAMBA} env export -p "${CONDA_INSTALLATION_PATH}/envs/${FULLENV}" > deployed."${CONDA_ENVIRONMENT}".old.yml
+        ### micromamba forces this to be done in 2 steps - install for new packages, and update to check for updates
+        ${MAMBA} install -p "${CONDA_INSTALLATION_PATH}/envs/${FULLENV}" --relocate-prefix "${CONDA_INSTALLATION_PATH}/envs/${FULLENV}" -f "${ENV_FILE}" -y
         ${MAMBA} update -p "${CONDA_INSTALLATION_PATH}/envs/${FULLENV}" --relocate-prefix "${CONDA_INSTALLATION_PATH}/envs/${FULLENV}" -f "${ENV_FILE}" -y
         if [[ $? -ne 0 ]]; then
             echo "Error updating new environment"
