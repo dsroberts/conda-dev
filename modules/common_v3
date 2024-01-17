@@ -6,7 +6,6 @@ set package __CONDA_INSTALL_BASENAME__
 # Name of this module's environment
 set condaenv [lindex [split [module-info name] {/}] 1]
 set basedir "$prefix/$package/envs/$condaenv"
-set rootdir [ string map [ list /envs/$condaenv {} ] $basedir ]
 
 set mymod [file normalize [info script]]
 set mydir [file dirname $mymod]

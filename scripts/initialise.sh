@@ -18,9 +18,8 @@ function inner() {
     mkdir -p "${CONDA_INSTALLATION_PATH}"
     pushd "${CONDA_INSTALLATION_PATH}"
     #curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
-    ### Temporarily copy modified mamba
-    mkdir bin
-    cp "${SCRIPT_DIR}"/../../mamba/build/micromamba/micromamba bin/
+    ### Modified micromamba for compatibility with nb_conda_kernels
+    curl -Ls https://dsroberts.github.io/mamba/latest | tar -xvj bin/micromamba
     popd
 
     mkdir -p "${CONDA_SCRIPT_PATH}"/overrides
